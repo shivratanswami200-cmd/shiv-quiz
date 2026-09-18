@@ -80,7 +80,6 @@
       position: relative;
     }
 
-    /* 4 Mascot Elements */
     .corner-mascot-left {
       position: absolute;
       bottom: 12px;
@@ -131,7 +130,6 @@
       50% { transform: translateY(-11px); }
     }
 
-    /* Glowing Card */
     .hero-card {
       background: var(--card-bg);
       border: 2.5px solid var(--accent-pink);
@@ -224,11 +222,11 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
 
-    /* 16:9 Landscape Banner */
+    /* 16:9 Landscape Banner Wrapper */
     .yt-thumbnail-wrap {
       max-width: 720px;
       width: 100%;
-      margin: 0 auto 24px auto;
+      margin: 0 auto 18px auto;
       background: var(--box-bg);
       border: 2.5px dashed var(--accent-pink);
       border-radius: 18px;
@@ -243,6 +241,35 @@
       background: #fef08a;
     }
     .landscape-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* Extra Quick Vault Action Strip next to Tables/Banner */
+    .vault-side-strip {
+      max-width: 720px;
+      width: 100%;
+      margin: 0 auto 20px auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 10px;
+    }
+    .btn-vault-chip {
+      background: var(--box-bg);
+      color: #9d174d;
+      border: 2px solid var(--accent-pink);
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: 13.5px;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 0 12px rgba(219, 39, 119, 0.25);
+      transition: 0.2s;
+      text-align: center;
+    }
+    body.dark-mode .btn-vault-chip { color: #f472b6; }
+    .btn-vault-chip:hover {
+      background: var(--accent-pink);
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
 
     /* MATH VAULT WITH GLOWING LINES */
     .math-vault-screen {
@@ -320,7 +347,7 @@
     .square-box b { color: #15803d; font-size: 18px; font-weight: 800; }
     body.dark-mode .square-box b { color: #4ade80; }
 
-    /* Divisibility Rules */
+    /* Divisibility Rules & Generic Cards */
     .rules-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
@@ -339,6 +366,40 @@
     .rule-desc { font-size: 14.5px; line-height: 1.55; color: var(--text-main); font-weight: 600; }
     .rule-eg { font-size: 13.5px; color: #7c2d12; margin-top: 5px; font-style: italic; font-weight: 700; }
     body.dark-mode .rule-eg { color: #fde047; }
+
+    /* Percentage-to-Fraction Grid */
+    .frac-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+    }
+    .frac-card {
+      background: var(--box-bg);
+      border: 2px solid #ca8a04;
+      border-top: 5px solid #d97706;
+      border-radius: 12px;
+      padding: 14px;
+      text-align: center;
+      box-shadow: 0 0 14px rgba(217, 119, 6, 0.3);
+    }
+    .frac-card b { font-size: 20px; color: #b45309; display: block; margin-bottom: 4px; }
+    body.dark-mode .frac-card b { color: #fde047; }
+    .frac-card span { font-size: 17px; font-weight: 800; color: #059669; }
+    body.dark-mode .frac-card span { color: #34d399; }
+
+    /* Syllabus & Reasoning Cards */
+    .syll-card {
+      background: var(--box-bg);
+      border: 2px solid #ec4899;
+      border-left: 6px solid #be185d;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 0 16px rgba(219, 39, 119, 0.25);
+    }
+    .syll-card h3 { color: #be185d; font-size: 18px; margin-bottom: 8px; }
+    body.dark-mode .syll-card h3 { color: #f472b6; }
+    .syll-list { list-style: disc inside; font-size: 14px; line-height: 1.7; font-weight: 600; color: var(--text-main); }
 
     /* STAGE 5: Setup & Prompt Access */
     .setup-wrap {
@@ -669,7 +730,7 @@
     }
     .shape-ans-review::after {
       content: ""; position: absolute; bottom: 0; right: 0;
-      width: 7px; height: 7px; background: #22c55e; border-radius: 50%; border: 1px solid #fff;
+      width: 7px; height: 7px; background: #22c55e; border-radius: 50%; border: 1.5px solid #fff;
     }
 
     .palette-grid-box {
@@ -778,7 +839,7 @@
     .bar-fill-wrong { height: 100%; background: #ef4444; width: 0%; transition: width 0.8s ease; }
     .bar-fill-skipped { height: 100%; background: #94a3b8; width: 0%; transition: width 0.8s ease; }
 
-    /* MOBILE ZERO-OVERLAP RESPONSIVE DESIGN */
+    /* MOBILE RESPONSIVE ZERO-OVERLAP */
     @media (max-width: 768px) {
       .hero-card { flex-direction: column; text-align: center; padding: 22px 16px; margin-top: 10px; gap: 18px; }
       .profile-img-circle { width: 120px; height: 120px; }
@@ -829,7 +890,6 @@
   <!-- STAGE 1: Profile & Dashboard -->
   <div class="view-screen active-view" id="viewStage1">
     <div class="hero-container">
-      <!-- 4 Mascots (Corners & Updated Anime Boys) -->
       <img src="https://pngfre.com/wp-content/uploads/anime-33.png" alt="Anime Corner Left" class="corner-mascot-left">
       <img src="https://upload.wikimedia.org/wikipedia/en/b/bd/Doraemon_character.png" alt="Doraemon Right" class="corner-mascot-right">
       <img src="https://www.pngmart.com/files/13/Demon-Anime-Boy-Background-PNG.png" alt="Demon Anime Boy Left" class="anime-mascot-mid-left">
@@ -841,7 +901,6 @@
           <div class="candidate-name-badge">COMMANDER SHIV</div>
           <div style="font-size: 13.5px; color: var(--text-muted); font-weight: 700; margin-top: 4px;">Target: IBPS RRB 2027 🎯</div>
           
-          <!-- Theme Toggle Button exclusively on dashboard -->
           <button class="dashboard-theme-btn" onclick="toggleColorTheme()">
             <span id="themeBtnText">🌙 Dark Mode</span>
           </button>
@@ -867,7 +926,7 @@
     </div>
   </div>
 
-  <!-- STAGE 2: Tables (21 to 30) + 16:9 Banner -->
+  <!-- STAGE 2: Tables (21 to 30) + 16:9 Banner + Quick Access Strip -->
   <div class="view-screen" id="viewStage2">
     <div class="math-vault-screen">
       <div class="math-header-bar">
@@ -875,13 +934,24 @@
           <button class="btn-back" onclick="goToStage(1)">⬅️ Home</button>
           <h2 style="display:inline-block; margin-left: 12px; color: #be185d; font-size:20px;">Tables (21 से 30)</h2>
         </div>
-        <button class="action-btn" onclick="goToStage(3)">Next: Cubes ➡️</button>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <button class="action-btn" onclick="goToStage(3)">Next: Cubes ➡️</button>
+        </div>
       </div>
 
+      <!-- Exact 16:9 Landscape Banner (Location & Size Maintained) -->
       <div class="yt-thumbnail-wrap">
         <div class="yt-aspect-container">
           <img id="landscapeBannerImg" class="landscape-img" src="https://i.pinimg.com/736x/77/08/c1/7708c188a2f67f5f3ad3df0b7748a8af.jpg" alt="Landscape Photo">
         </div>
+      </div>
+
+      <!-- Quick Vault Access Buttons Next to Banner -->
+      <div class="vault-side-strip">
+        <button class="btn-vault-chip" onclick="goToStage('Syllabus')">📚 RRB PO/Clerk Syllabus</button>
+        <button class="btn-vault-chip" onclick="goToStage('Fractions')">📊 % to Fraction Vault</button>
+        <button class="btn-vault-chip" onclick="goToStage('Reasoning')">🧠 Reasoning Tricks Vault</button>
+        <button class="btn-vault-chip" onclick="goToStage('PracticeSets')">📑 Practice PDF / Test Sets</button>
       </div>
 
       <div class="tables-grid" id="tablesContainer"></div>
@@ -927,6 +997,130 @@
         <button class="action-btn" onclick="goToStage(5)">Next: Exam Setup 🚀</button>
       </div>
       <div class="rules-grid" id="rulesContainer"></div>
+    </div>
+  </div>
+
+  <!-- STAGE: Percentage to Fractions Vault -->
+  <div class="view-screen" id="viewStageFractions">
+    <div class="math-vault-screen">
+      <div class="math-header-bar">
+        <div>
+          <button class="btn-back" onclick="goToStage(2)">⬅️ Back (Speed Math)</button>
+          <h2 style="display:inline-block; margin-left: 12px; color: #d97706; font-size:20px;">Banking % to Fraction Vault</h2>
+        </div>
+        <button class="action-btn" onclick="goToStage(5)">Exam Setup 🚀</button>
+      </div>
+      <div class="frac-grid" id="fractionsContainer"></div>
+    </div>
+  </div>
+
+  <!-- STAGE: RRB PO & Clerk Syllabus (Pre + Mains) -->
+  <div class="view-screen" id="viewStageSyllabus">
+    <div class="math-vault-screen">
+      <div class="math-header-bar">
+        <div>
+          <button class="btn-back" onclick="goToStage(2)">⬅️ Back (Speed Math)</button>
+          <h2 style="display:inline-block; margin-left: 12px; color: #be185d; font-size:20px;">IBPS RRB PO & Clerk Complete Exam Roadmap</h2>
+        </div>
+        <button class="action-btn" onclick="goToStage(5)">Exam Setup 🚀</button>
+      </div>
+
+      <div class="syll-card">
+        <h3>🎯 1. RRB Prelims Exam Pattern (PO & Office Assistant - Composite 45 Min)</h3>
+        <ul class="syll-list">
+          <li><b>Reasoning Ability:</b> 40 Questions | 40 Marks (Puzzles, Seating Arrangement, Syllogism, Inequality, Coding-Decoding, Blood Relation, Order & Ranking)</li>
+          <li><b>Quantitative Aptitude:</b> 40 Questions | 40 Marks (Simplification/Approximation, Missing/Wrong Series, Quadratic Equations, Data Interpretation - Bar/Table/Line/Pie/Caselet, Arithmetic Word Problems)</li>
+          <li><b>Total:</b> 80 Questions | 80 Marks | <b>Negative Marking:</b> 0.25 (1/4th)</li>
+        </ul>
+      </div>
+
+      <div class="syll-card" style="border-color:#0284c7; border-left-color:#0369a1;">
+        <h3 style="color:#0284c7;">🏆 2. RRB Mains Exam Pattern (Composite 2 Hours - 200 Marks)</h3>
+        <ul class="syll-list">
+          <li><b>Reasoning:</b> 40 Qs | 50 Marks (High-level Machine Input-Output, Coded Syllogism/Inequality, Critical Reasoning, Multi-variable Puzzles)</li>
+          <li><b>Quantitative Aptitude / Numerical Ability:</b> 40 Qs | 50 Marks (Arithmetic DI, Caselet DI, Data Sufficiency, Quantity 1 vs Quantity 2)</li>
+          <li><b>General Awareness:</b> 40 Qs | 40 Marks (Banking Awareness, RBI Circulars, Static GK, Current Affairs past 6 months)</li>
+          <li><b>English / Hindi Language:</b> 40 Qs | 40 Marks (Reading Comprehension, Cloze Test, Error Detection, Fillers, Para Jumbles)</li>
+          <li><b>Computer Knowledge:</b> 40 Qs | 20 Marks (Networking, MS Office, DBMS, Hardware/Software, Cyber Security)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- STAGE: Reasoning Vault -->
+  <div class="view-screen" id="viewStageReasoning">
+    <div class="math-vault-screen">
+      <div class="math-header-bar">
+        <div>
+          <button class="btn-back" onclick="goToStage(2)">⬅️ Back (Speed Math)</button>
+          <h2 style="display:inline-block; margin-left: 12px; color: #7c3aed; font-size:20px;">Banking Reasoning Speed Vault</h2>
+        </div>
+        <button class="action-btn" onclick="goToStage(5)">Exam Setup 🚀</button>
+      </div>
+
+      <div class="syll-card" style="border-color:#7c3aed; border-left-color:#6d28d9;">
+        <h3 style="color:#7c3aed;">🔤 1. Alphabet Opposite Reverse Letter Pairs (A-Z)</h3>
+        <p style="font-size:14px; font-weight:700; margin-bottom:8px; color:var(--text-main);">Trick Mnemonics to remember easily:</p>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(130px, 1fr)); gap:8px; font-family:monospace; font-size:14px;">
+          <div class="square-box"><b>A ↔ Z</b> (Azad)</div>
+          <div class="square-box"><b>B ↔ Y</b> (Boy)</div>
+          <div class="square-box"><b>C ↔ X</b> (Crux)</div>
+          <div class="square-box"><b>D ↔ W</b> (Dew)</div>
+          <div class="square-box"><b>E ↔ V</b> (Even)</div>
+          <div class="square-box"><b>F ↔ U</b> (FUll)</div>
+          <div class="square-box"><b>G ↔ T</b> (GT Road)</div>
+          <div class="square-box"><b>H ↔ S</b> (High School)</div>
+          <div class="square-box"><b>I ↔ R</b> (Indian Railway)</div>
+          <div class="square-box"><b>J ↔ Q</b> (Jack Queen)</div>
+          <div class="square-box"><b>K ↔ P</b> (Kamal Pasand)</div>
+          <div class="square-box"><b>L ↔ O</b> (LOve)</div>
+          <div class="square-box"><b>M ↔ N</b> (MaN)</div>
+        </div>
+      </div>
+
+      <div class="syll-card" style="border-color:#16a34a; border-left-color:#15803d;">
+        <h3 style="color:#16a34a;">⚡ 2. Coded Inequality Direct Priority Rules</h3>
+        <ul class="syll-list">
+          <li><b>King Family (Priority 1):</b> $>$ or $<$ (Definite Relation)</li>
+          <li><b>Soldier Family (Priority 2):</b> $\ge$ or $\le$ (Dual Relation)</li>
+          <li><b>Public (Priority 3):</b> $=$ (Always yields to King/Soldier)</li>
+          <li><b>Opposite Signs Blockage:</b> If path contains opposing symbols ($>$ and $<$), No definite relation forms $\rightarrow$ False (Check for Either-Or).</li>
+        </ul>
+      </div>
+
+      <div class="syll-card" style="border-color:#d97706; border-left-color:#b45309;">
+        <h3 style="color:#d97706;">🧭 3. Direction Sense Cardinal Reference</h3>
+        <ul class="syll-list">
+          <li>Facing North: Right = East (+X), Left = West (-X)</li>
+          <li>Facing South: Right = West (-X), Left = East (+X)</li>
+          <li>Pythagoras Theorem for Shortest Distance: $H = \sqrt{P^2 + B^2}$</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- STAGE: Ready Practice Question Sets (PDF/Direct Exam Load) -->
+  <div class="view-screen" id="viewStagePracticeSets">
+    <div class="math-vault-screen">
+      <div class="math-header-bar">
+        <div>
+          <button class="btn-back" onclick="goToStage(2)">⬅️ Back (Speed Math)</button>
+          <h2 style="display:inline-block; margin-left: 12px; color: #be185d; font-size:20px;">Practice Sets (Maths & Reasoning)</h2>
+        </div>
+        <button class="action-btn" onclick="goToStage(5)">Custom JSON Setup 🚀</button>
+      </div>
+
+      <div class="syll-card">
+        <h3>⚡ Set 1: Speed Maths 10 Qs (Simplification, Series, Quadratic)</h3>
+        <p style="font-size:13.5px; color:var(--text-muted); font-weight:700; margin-bottom:10px;">Exact RRB Clerk / PO 2026-2027 standard mixed practice set.</p>
+        <button class="action-btn" style="padding:8px 18px; font-size:13px;" onclick="loadPredefinedTest(1)">🚀 Load & Start Live in Exam Portal</button>
+      </div>
+
+      <div class="syll-card" style="border-color:#7c3aed; border-left-color:#6d28d9;">
+        <h3 style="color:#7c3aed;">🧠 Set 2: Reasoning 10 Qs (Inequality, Syllogism, Alpha-Numeric)</h3>
+        <p style="font-size:13.5px; color:var(--text-muted); font-weight:700; margin-bottom:10px;">High-scoring pre speed booster set with timer tracking.</p>
+        <button class="action-btn" style="background:#7c3aed; padding:8px 18px; font-size:13px;" onclick="loadPredefinedTest(2)">🚀 Load & Start Live in Exam Portal</button>
+      </div>
     </div>
   </div>
 
@@ -1132,7 +1326,6 @@ STRICT CONSTRAINTS:
           </div>
         </div>
 
-        <!-- Visual Analytics Section (Pie Chart + Horizontal Bars) -->
         <div class="analytics-visual-box">
           <div class="pie-chart-wrap" id="pieChartVisual">
             <div class="pie-inner-circle">
@@ -1175,7 +1368,6 @@ STRICT CONSTRAINTS:
   </div>
 
   <script>
-    // 1. Theme Toggle System (Dashboard Only)
     function initTheme() {
       const savedTheme = localStorage.getItem('portal_theme') || 'light';
       if (savedTheme === 'dark') {
@@ -1194,7 +1386,6 @@ STRICT CONSTRAINTS:
       document.getElementById('themeBtnText').innerText = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
     }
 
-    // 2. Navigation
     function goToStage(stageNum) {
       document.querySelectorAll('.view-screen').forEach(el => el.classList.remove('active-view'));
       document.getElementById(`viewStage${stageNum}`).classList.add('active-view');
@@ -1206,7 +1397,6 @@ STRICT CONSTRAINTS:
       document.getElementById('paletteBackdrop').classList.toggle('drawer-open');
     }
 
-    // 3. Divisibility Rules Data
     const divisibilityRulesData = [
       { num: 1, rule: "सभी पूर्णांक 1 से पूर्णतः विभाज्य होते हैं।", eg: "45 ÷ 1 = 45" },
       { num: 2, rule: "अंतिम इकाई अंक सम (Even: 0, 2, 4, 6, 8) होना चाहिए।", eg: "358 (अंतिम अंक 8)" },
@@ -1230,8 +1420,38 @@ STRICT CONSTRAINTS:
       { num: 20, rule: "अंतिम दो अंक 00, 20, 40, 60, या 80 होने चाहिए।", eg: "480, 1260" }
     ];
 
+    const fractionsData = [
+      { f: "1/1", p: "100%" },
+      { f: "1/2", p: "50%" },
+      { f: "1/3", p: "33.33% (33 1/3%)" },
+      { f: "1/4", p: "25%" },
+      { f: "1/5", p: "20%" },
+      { f: "1/6", p: "16.66% (16 2/3%)" },
+      { f: "1/7", p: "14.28% (14 2/7%)" },
+      { f: "1/8", p: "12.5% (12 1/2%)" },
+      { f: "1/9", p: "11.11% (11 1/9%)" },
+      { f: "1/10", p: "10%" },
+      { f: "1/11", p: "9.09% (9 1/11%)" },
+      { f: "1/12", p: "8.33% (8 1/3%)" },
+      { f: "1/13", p: "7.69% (7 9/13%)" },
+      { f: "1/14", p: "7.14% (7 1/7%)" },
+      { f: "1/15", p: "6.66% (6 2/3%)" },
+      { f: "1/16", p: "6.25% (6 1/4%)" },
+      { f: "1/17", p: "5.88% (5 15/17%)" },
+      { f: "1/18", p: "5.55% (5 5/9%)" },
+      { f: "1/19", p: "5.26% (5 5/19%)" },
+      { f: "1/20", p: "5%" },
+      { f: "1/24", p: "4.16% (4 1/6%)" },
+      { f: "1/25", p: "4%" },
+      { f: "3/8", p: "37.5%" },
+      { f: "5/8", p: "62.5%" },
+      { f: "7/8", p: "87.5%" },
+      { f: "4/7", p: "57.14%" },
+      { f: "5/6", p: "83.33%" }
+    ];
+
     function buildMathVault() {
-      // Tables 21-30
+      // Tables
       const tblBox = document.getElementById('tablesContainer');
       tblBox.innerHTML = '';
       for (let t = 21; t <= 30; t++) {
@@ -1243,7 +1463,7 @@ STRICT CONSTRAINTS:
         tblBox.appendChild(card);
       }
 
-      // Cubes 11-25
+      // Cubes
       const cubeBox = document.getElementById('cubesContainer');
       cubeBox.innerHTML = '';
       for (let c = 11; c <= 25; c++) {
@@ -1253,7 +1473,7 @@ STRICT CONSTRAINTS:
         cubeBox.appendChild(card);
       }
 
-      // Squares 1-100
+      // Squares
       const sqBox = document.getElementById('squaresContainer');
       sqBox.innerHTML = '';
       for (let s = 1; s <= 100; s++) {
@@ -1263,7 +1483,7 @@ STRICT CONSTRAINTS:
         sqBox.appendChild(card);
       }
 
-      // Rules 1-20
+      // Rules
       const ruleBox = document.getElementById('rulesContainer');
       ruleBox.innerHTML = '';
       divisibilityRulesData.forEach(item => {
@@ -1276,9 +1496,41 @@ STRICT CONSTRAINTS:
         `;
         ruleBox.appendChild(card);
       });
+
+      // Fractions
+      const fracBox = document.getElementById('fractionsContainer');
+      fracBox.innerHTML = '';
+      fractionsData.forEach(item => {
+        let card = document.createElement('div');
+        card.className = 'frac-card';
+        card.innerHTML = `<b>${item.f}</b><span>= ${item.p}</span>`;
+        fracBox.appendChild(card);
+      });
     }
 
-    // 4. Prompt Modal
+    // Predefined Practice Tests (PDF Replacement with Interactive Exam Mode)
+    const practiceSetMath = [
+      { q: "What will come in place of question mark (?)\n45% of 600 + ?% of 480 = 390", options: ["20", "25", "30", "15", "None of these"], ans: 1, exp: "45% of 600 = 270\n390 - 270 = 120\n(?/100)*480 = 120 => ? = (120*100)/480 = 25" },
+      { q: "Find the wrong number in the following number series:\n12, 14, 32, 102, 414, 2090", options: ["14", "32", "102", "414", "None of these"], ans: 1, exp: "12*1 + 2 = 14\n14*2 + 3 = 31 (Not 32)\n31*3 + 4 = 97... Hence 32 is wrong." },
+      { q: "Direction: Solve the quadratic equations:\nI. x² - 17x + 72 = 0\nII. y² - 19y + 90 = 0", options: ["x > y", "x < y", "x ≥ y", "x ≤ y", "x = y or relation cannot be established"], ans: 4, exp: "x = +9, +8\ny = +10, +9\nComparing: 9 < 10, 9 = 9, 8 < 10, 8 < 9 => x ≤ y (Ans: 3 if x≤y). Here x=y or no relation holds if overlapping. So Option D: x ≤ y." },
+      { q: "Simplify:\n√784 + 18 × 15 - ? = 145", options: ["143", "153", "163", "173", "None of these"], ans: 1, exp: "28 + 270 - ? = 145 => 298 - ? = 145 => ? = 153" },
+      { q: "What should come in place of question mark (?):\n8, 11, 20, 47, ?, 371", options: ["128", "138", "118", "126", "None of these"], ans: 0, exp: "Differences: +3, +9, +27, +81, +243 (Powers of 3)\n47 + 81 = 128" }
+    ];
+
+    const practiceSetReasoning = [
+      { q: "Statements: P > Q ≥ R = S < T ≤ U\nConclusions:\nI. P > S\nII. R < U", options: ["Only conclusion I is true", "Only conclusion II is true", "Either conclusion I or II is true", "Neither conclusion I nor II is true", "Both conclusions I and II are true"], ans: 4, exp: "I. Path from P to S: P > Q ≥ R = S => P > S (True)\nII. Path from R to U: R = S < T ≤ U => R < U (True)\nBoth are true." },
+      { q: "Statements: All Cups are Plates. Some Plates are Glasses. No Glass is a Bowl.\nConclusions:\nI. Some Cups are Glasses.\nII. No Bowl is a Plate.", options: ["Only conclusion I follows", "Only conclusion II follows", "Either I or II follows", "Neither I nor II follows", "Both I and II follow"], ans: 3, exp: "There is no direct link between Cup and Glass (False).\nBowl is only restricted with Glass, not Plate (False). Neither follows." },
+      { q: "If all the vowels in the word 'BANKING' are replaced with their immediate next letter and consonants with previous letter, how many letters appear more than once?", options: ["None", "One", "Two", "Three", "More than three"], ans: 1, exp: "Original: B A N K I N G\nB(-1)=A, A(+1)=B, N(-1)=M, K(-1)=J, I(+1)=J, N(-1)=M, G(-1)=F\nNew: A, B, M, J, J, M, F => 'J' and 'M' appear twice (Two letters)." }
+    ];
+
+    function loadPredefinedTest(type) {
+      if (type === 1) quizData = practiceSetMath;
+      else quizData = practiceSetReasoning;
+
+      document.getElementById('jsonPayload').value = JSON.stringify(quizData, null, 2);
+      startLiveExam();
+    }
+
     function openPromptModal() { document.getElementById('promptModal').style.display = 'flex'; }
     function closePromptModal(e) { document.getElementById('promptModal').style.display = 'none'; }
     function copyPromptToClipboard() {
@@ -1289,7 +1541,6 @@ STRICT CONSTRAINTS:
       });
     }
 
-    // 5. Custom Timer
     let selectedMinutes = 20;
     function setTimeManual(mins, btn) {
       document.querySelectorAll('.time-chip').forEach(b => b.classList.remove('active'));
@@ -1304,11 +1555,12 @@ STRICT CONSTRAINTS:
       }
     }
 
-    // 6. Exam & Review Engine
+    // Exam Engine with Question-Specific Timer Tracking
     let quizData = [];
     let curQ = 0;
     let examStatuses = [];
     let userSelections = {};
+    let questionTimesSpent = []; // Records exact time spent per question
     let testTimeRemaining = 20 * 60;
     let singleQTime = 0;
     let examTimerRef = null;
@@ -1337,6 +1589,7 @@ STRICT CONSTRAINTS:
       examStatuses = new Array(quizData.length).fill(0);
       examStatuses[0] = 1;
       userSelections = {};
+      questionTimesSpent = new Array(quizData.length).fill(0);
 
       goToStage(6);
       buildPaletteNodes();
@@ -1362,6 +1615,11 @@ STRICT CONSTRAINTS:
     }
 
     function loadQuestionIndex(idx) {
+      // Accumulate time on previous question
+      if (!isReviewMode && quizData.length > 0) {
+        questionTimesSpent[curQ] = (questionTimesSpent[curQ] || 0) + singleQTime;
+      }
+
       curQ = idx;
       singleQTime = 0;
       clearTimeout(autoNextTimeout);
@@ -1392,6 +1650,14 @@ STRICT CONSTRAINTS:
         });
         syncPaletteStyles();
       } else {
+        // Show exact time spent on this question in review
+        let qSec = questionTimesSpent[curQ] || 0;
+        let qm = Math.floor(qSec / 60).toString().padStart(2, '0');
+        let qs = (qSec % 60).toString().padStart(2, '0');
+        document.getElementById('masterTimer').innerText = `Time Spent: ${qm} : ${qs}`;
+        document.getElementById('masterTimer').style.color = "#0284c7";
+        document.getElementById('qStopwatch').innerText = `${qm} : ${qs}`;
+
         expBox.style.display = 'block';
         expContent.innerHTML = quizData[curQ].exp || "<i>व्याख्या उपलब्ध नहीं है</i>";
 
@@ -1511,6 +1777,9 @@ STRICT CONSTRAINTS:
       clearInterval(examTimerRef);
       clearTimeout(autoNextTimeout);
 
+      // Record time of the final question
+      questionTimesSpent[curQ] = (questionTimesSpent[curQ] || 0) + singleQTime;
+
       let correct = 0, wrong = 0;
       let att = Object.keys(userSelections).length;
       let total = quizData.length;
@@ -1566,9 +1835,7 @@ STRICT CONSTRAINTS:
       isReviewMode = true;
       document.getElementById('examTopTitle').innerText = "IBPS RRB - Review Mode";
       document.getElementById('autoToggleContainer').style.display = "none";
-      document.getElementById('qTimerWrap').style.display = "none";
-      document.getElementById('masterTimer').innerText = "EXAM REVIEW";
-      document.getElementById('masterTimer').style.color = "#059669";
+      document.getElementById('qTimerWrap').style.display = "inline";
       document.getElementById('examFooterNormal').style.display = "none";
       document.getElementById('examFooterReview').style.display = "flex";
       document.getElementById('legendTableWrap').style.display = "none";
